@@ -111,7 +111,10 @@ public class ui extends javax.swing.JFrame {
                 b = Integer.valueOf(jTextField2.getText());
                 c = Integer.valueOf(jTextField3.getText());
                 if (a != 0 && b != 0 && c != 0) {
-                    if (Math.abs(a) == Math.abs(b) && Math.abs(b) == Math.abs(c)) {
+                    if(Math.abs(a)+Math.abs(b)<=Math.abs(c)|| Math.abs(a)+Math.abs(c)<=Math.abs(b)||Math.abs(c)+Math.abs(b)<=Math.abs(a)){
+                        jLabel2.setText("This is not a real triangle the sum of two sides must be > than the third");
+                    }
+                    else if (Math.abs(a) == Math.abs(b) && Math.abs(b) == Math.abs(c)) {
                         jLabel2.setText("equilateral");
                     } else if (Math.abs(a) == Math.abs(b) || Math.abs(b) == Math.abs(c) || Math.abs(c) == Math.abs(a)) {
                         jLabel2.setText("Isosceles");
@@ -128,10 +131,9 @@ public class ui extends javax.swing.JFrame {
         } catch (NumberFormatException ex) {//is the entry is not a number catch it :)
             jLabel2.setText(ex.getMessage()+" is not an integer number !! \n Try again.");
         }
-        return;
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
