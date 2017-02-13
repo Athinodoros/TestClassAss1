@@ -111,7 +111,7 @@ public class ui extends javax.swing.JFrame {
                 b = Integer.valueOf(jTextField2.getText());
                 c = Integer.valueOf(jTextField3.getText());
                 if (a != 0 && b != 0 && c != 0) {
-                    if (Math.abs(a) + Math.abs(c) == Math.abs(b)||Math.abs(c) + Math.abs(b) == Math.abs(a)||Math.abs(a) + Math.abs(b) == Math.abs(c)) {
+                    if (Math.abs(a) + Math.abs(c) <= Math.abs(b)||Math.abs(c) + Math.abs(b) <= Math.abs(a)||Math.abs(a) + Math.abs(b) <= Math.abs(c)) {
                         jLabel2.setText("This is not a real triangle the sum of two sides must be > than the third");
                     }  else if (Math.abs(a) == Math.abs(b) && Math.abs(b) == Math.abs(c)) {
                         jLabel2.setText("equilateral");
@@ -149,29 +149,18 @@ public class ui extends javax.swing.JFrame {
 
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ui.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ui.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ui.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ui.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ui().setVisible(true);
-            }
+            java.awt.EventQueue.invokeLater(() -> {
+            new ui().setVisible(true);
         });
     }
 
